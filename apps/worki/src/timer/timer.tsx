@@ -25,7 +25,6 @@ const sessions: Record<SessionName, Session> = {
 };
 
 // TODO: phase two
-// zero-padding
 // build out the intro and retro sessions to specify what i should be doing
 // i.e.
 // intro: plan work in the upcoming focus session
@@ -81,7 +80,7 @@ export function Timer(props: TimerProps) {
       {/* main center view */}
       <View style={tw('flex-1 justify-center')}>
         <Text style={tw(`text-9xl font-bold ${textClass}`)}>
-          {Math.floor(minSinceTopOfHr)}:{Math.floor(secSinceTopOfMin)}
+          {toTimeFormat(minSinceTopOfHr)}:{toTimeFormat(secSinceTopOfMin)}
         </Text>
       </View>
     </View>
@@ -90,6 +89,10 @@ export function Timer(props: TimerProps) {
 
 function getCurrentTime(): DateTime {
   return DateTime.now();
+}
+
+function toTimeFormat(num: number): string {
+  return String(Math.floor(num)).padStart(2, '0');
 }
 
 export default Timer;
