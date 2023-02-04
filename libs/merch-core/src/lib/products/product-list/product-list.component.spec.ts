@@ -18,6 +18,7 @@ describe('ProductListComponent', () => {
     const productsService = mockProvider(ProductsService, {
       products$: of(MOCK_PRODUCTS),
       getProducts: () => of(MOCK_PRODUCTS_RESPONSE),
+      techProducts$: of(MOCK_TECH_PRODUCTS),
     });
 
     await TestBed.configureTestingModule({
@@ -34,7 +35,7 @@ describe('ProductListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have filtered products array observable', async () => {
+  it('should have products array observable', async () => {
     expect(component.products$).toBeInstanceOf(Observable);
 
     // use .resolves for promises (or just await them first)
@@ -43,6 +44,5 @@ describe('ProductListComponent', () => {
 
     const products = await firstValueFrom(component.products$);
     expect(products).toBeInstanceOf(Array);
-    expect(products).toHaveLength(MOCK_TECH_PRODUCTS.length);
   });
 });

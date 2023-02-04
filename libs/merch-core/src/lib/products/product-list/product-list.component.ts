@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -8,15 +7,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  private readonly categories = ['smartphones', 'laptops'];
-
-  public products$ = this.productsService.products$.pipe(
-    map((products) => {
-      return products.filter((product) =>
-        this.categories.includes(product.category)
-      );
-    })
-  );
+  public products$ = this.productsService.techProducts$;
 
   constructor(private productsService: ProductsService) {}
 
