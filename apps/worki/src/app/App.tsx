@@ -19,7 +19,9 @@ const AppWithTw = () => {
 
   // once upon a time, probably now, i needed to do this to make these colors work (!)
   // are you confused? you should be. i was. i still am.
-  console.log('colorz', tw('text-yellow-400 text-blue-600 text-green-600'));
+  tw(
+    'text-yellow-400 bg-yellow-400 text-blue-600 bg-blue-600 bg-green-600 text-green-600'
+  );
 
   return (
     <SafeAreaView style={tw('h-full')}>

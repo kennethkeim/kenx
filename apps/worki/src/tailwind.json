@@ -38,6 +38,24 @@
 			"borderLeftColor": "rgb(239 68 68 / var(--tw-border-opacity))"
 		}
 	},
+	"bg-blue-600": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(37 99 235 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-green-600": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(22 163 74 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-yellow-400": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(250 204 21 / var(--tw-bg-opacity))"
+		}
+	},
 	"text-xl": {
 		"style": {
 			"fontSize": 20,

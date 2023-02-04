@@ -24,13 +24,8 @@ const sessions: Record<SessionName, Session> = {
   retro: { name: 'retro', end: 59.9, color: 'green-600' },
 };
 
-// session changes
-// display visual cues when the session is about to change
-// display visual cues when the session changes
-// (session changes need to be noticeable while wearing headphones)
-// zero-padding
-
 // TODO: phase two
+// zero-padding
 // build out the intro and retro sessions to specify what i should be doing
 // i.e.
 // intro: plan work in the upcoming focus session
@@ -66,8 +61,18 @@ export function Timer(props: TimerProps) {
     session = sessions.retro;
   }
 
+  // add visual cues if nearing end of session
+  const minLeft = session.end - minSinceTopOfHr;
+  let bgClass = '';
+  let textClass = `text-${session.color}`;
+  if (minLeft < 1) {
+    bgClass =
+      Math.floor(secSinceTopOfMin) % 2 === 0 ? `bg-${session.color}` : '';
+    textClass = !bgClass ? textClass : '';
+  }
+
   return (
-    <View style={tw(`items-center flex-1`)}>
+    <View style={tw(`items-center flex-1 ${bgClass}`)}>
       {/* top row */}
       <View>
         <Text style={tw('text-xl')}>{session.name}</Text>
@@ -75,7 +80,7 @@ export function Timer(props: TimerProps) {
 
       {/* main center view */}
       <View style={tw('flex-1 justify-center')}>
-        <Text style={tw(`text-9xl font-bold text-${session.color}`)}>
+        <Text style={tw(`text-9xl font-bold ${textClass}`)}>
           {Math.floor(minSinceTopOfHr)}:{Math.floor(secSinceTopOfMin)}
         </Text>
       </View>
