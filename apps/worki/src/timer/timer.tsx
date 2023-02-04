@@ -7,7 +7,7 @@ import { useTailwind } from 'tailwind-rn/dist';
 export interface TimerProps {}
 
 const introEnd = 5;
-const focusEnd = 50;
+const focusEnd = 55;
 /** keep this just under a full second to ensure it runs every second even if setInterval has small inconsistencies */
 const intervalMs = 990;
 
