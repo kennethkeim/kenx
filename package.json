@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "merch": "nx run merch:serve"
+    "mr": "nx run merch:serve",
+    "mr:t": "nx run merch:test",
+    "mr:tw": "nx run merch:test --watch"
   },
   "private": true,
   "dependencies": {
