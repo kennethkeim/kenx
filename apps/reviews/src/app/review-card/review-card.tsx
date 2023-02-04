@@ -1,5 +1,4 @@
 import { Reply, Review } from '../data/reviews';
-import styles from './review-card.module.scss';
 
 export interface ReviewCardProps {
   review: Review;
@@ -7,11 +6,12 @@ export interface ReviewCardProps {
 
 export function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <li className={styles['review-card']} key={review.id}>
-      <h2>
-        {review.guest} - {review.date}
-      </h2>
-      <p>{review.message}</p>
+    <li key={review.id} className="bg-white mb-7 p-6 rounded-2xl shadow">
+      <div className="flex justify-between mb-1">
+        <h2 className="text-gray-600 font-medium">{review.guest}</h2>
+        <p className="text-gray-400 text-sm">{review.date}</p>
+      </div>
+      <p className="text-gray-600 mb-3 whitespace-pre-line">{review.message}</p>
       {review.reply ? <ReplyCard reply={review.reply} /> : ''}
     </li>
   );
@@ -23,9 +23,11 @@ export interface ReplyCardProps {
 
 export function ReplyCard({ reply }: ReplyCardProps) {
   return (
-    <article>
-      <h3>Reply - {reply.date}</h3>
-      <p>{reply.message}</p>
+    <article className="bg-gray-100 p-3 rounded-lg">
+      <h3 className="mb-1 text-gray-400 text-sm">Reply on {reply.date}</h3>
+      <p className="text-gray-600 text-sm whitespace-pre-line">
+        {reply.message}
+      </p>
     </article>
   );
 }

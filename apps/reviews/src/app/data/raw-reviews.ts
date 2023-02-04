@@ -5,7 +5,7 @@ export const rawReviews = [
   'Our stay was just what we needed. Pictures are accurate. Area is quiet and peaceful. I would love to stay again in needed.',
   'Response from ElamJanuary 2023Wonderful, you are welcome any time!',
   'ElizabethJanuary 2023',
-  'the house was so nice and clean exactly how pictured. The hosts responded super quick and were very helpful. Great stay! Would recommend.',
+  'The house was so nice and clean exactly how pictured. The hosts responded super quick and were very helpful. Great stay! Would recommend.',
   'Response from ElamJanuary 2023Thank you for recommending us! Appreciate that.',
   'TaylorJanuary 2023',
   'What a wonderful stay! The place was clean and well kept and Elam was very great at communication!',
