@@ -42,6 +42,9 @@ Thumbs.db
 
 # React Native
 
+# generated content in tailwind-rn projects
+apps/worki/tailwind.css
+
 # OSX
 #
 .DS_Store

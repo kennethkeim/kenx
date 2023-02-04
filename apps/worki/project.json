@@ -16,6 +16,18 @@
         "command": "nx start worki"
       }
     },
+    "build-tw": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd apps/worki && tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn --output src/tailwind.json"
+      }
+    },
+    "serve-tw": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd apps/worki && concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch --output src/tailwind.json\""
+      }
+    },
     "run-ios": {
       "executor": "@nrwl/react-native:run-ios",
       "options": {}
