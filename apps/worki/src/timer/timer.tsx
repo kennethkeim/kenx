@@ -23,19 +23,11 @@ const sessionColors: Record<Session, string> = {
   [Session.Retro]: 'green-600',
 };
 
-// TODO: phase one
-
-// current session
-// display glanceable visual cues for the current session
-// what is the session indicator? the thing that visually indicates the current session at a glance?
-// emoji? color-coded session name? color-coded ticker?
-// background could be color-coded
-// use clock ticker audio for the focus session (unless i do audio for the other sessions)
-
 // session changes
-// session changes need to be noticeable while wearing headphones
-// display visual and audio cues when the session is about to change
-// display visual and audio cues when the session changes
+// display visual cues when the session is about to change
+// display visual cues when the session changes
+// (session changes need to be noticeable while wearing headphones)
+// zero-padding
 
 // TODO: phase two
 // build out the intro and retro sessions to specify what i should be doing
@@ -46,6 +38,11 @@ const sessionColors: Record<Session, string> = {
 // something to keep in mind, i need to communicate with team members
 // that probably means finding a slot for it in the intro or retro sessions
 // i also don't have to do focus sessions every hour...
+
+// TODO: phase three
+// use clock ticker audio for the focus session (unless i do audio for the other sessions)
+// use audio cues when session is about to change
+// use audio cues when session changes
 
 export function Timer(props: TimerProps) {
   const [now, setNow] = useState(getCurrentTime());
