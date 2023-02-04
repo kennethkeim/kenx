@@ -68,6 +68,12 @@
 			"lineHeight": 128
 		}
 	},
+	"text-lg": {
+		"style": {
+			"fontSize": 18,
+			"lineHeight": 28
+		}
+	},
 	"font-bold": {
 		"style": {
 			"fontWeight": "700"

@@ -14,28 +14,37 @@ interface Session {
   name: SessionName;
   end: number;
   color: string;
+  todos: string[];
 }
 
 const sessions: Record<SessionName, Session> = {
-  intro: { name: 'intro', end: 5, color: 'yellow-400' },
-  focus: { name: 'focus', end: 55, color: 'blue-600' },
-  retro: { name: 'retro', end: 59.9, color: 'green-600' },
+  intro: {
+    name: 'intro',
+    end: 5,
+    color: 'yellow-400',
+    todos: ['💭 Plan upcoming focus session'],
+  },
+  focus: {
+    name: 'focus',
+    end: 55,
+    color: 'blue-600',
+    todos: ['💪 Get it done'],
+  },
+  retro: {
+    name: 'retro',
+    end: 59.9,
+    color: 'green-600',
+    todos: [
+      '🧍‍♂️ Stand up',
+      '🧐 Review what you got done',
+      '💬 Respond to notifications',
+      '... one of the below ...',
+      '✋ Carpal tunnel exercise',
+      '🏋️‍♀️ 15 reps of pushups/situps/squats',
+      '🌵 Pranamat',
+    ],
+  },
 };
-
-// TODO: phase two
-// build out the intro and retro sessions to specify what i should be doing
-// i.e.
-// intro: plan work in the upcoming focus session
-// retro: review what i did, what i learned, exercise, stand, check notifications, etc.
-
-// something to keep in mind, i need to communicate with team members
-// that probably means finding a slot for it in the intro or retro sessions
-// i also don't have to do focus sessions every hour...
-
-// TODO: phase three
-// use clock ticker audio for the focus session (unless i do audio for the other sessions)
-// use audio cues when session is about to change
-// use audio cues when session changes
 
 export function Timer(props: TimerProps) {
   const [now, setNow] = useState(getCurrentTime());
@@ -83,6 +92,14 @@ export function Timer(props: TimerProps) {
         <Text style={tw(`text-9xl font-bold ${textClass}`)}>
           {toTimeFormat(minSinceTopOfHr)}:{toTimeFormat(secSinceTopOfMin)}
         </Text>
+
+        <View style={tw('items-center')}>
+          {session.todos.map((todo) => (
+            <Text key={todo} style={tw('text-lg')}>
+              {todo}
+            </Text>
+          ))}
+        </View>
       </View>
     </View>
   );
