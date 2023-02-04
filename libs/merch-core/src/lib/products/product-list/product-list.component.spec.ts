@@ -5,7 +5,6 @@ import { ProductsService } from '../products.service';
 
 import { ProductListComponent } from './product-list.component';
 import {
-  MOCK_PRODUCTS,
   MOCK_PRODUCTS_RESPONSE,
   MOCK_TECH_PRODUCTS,
 } from '../models/products.mock';
@@ -16,7 +15,6 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     const productsService = mockProvider(ProductsService, {
-      products$: of(MOCK_PRODUCTS),
       getProducts: () => of(MOCK_PRODUCTS_RESPONSE),
       techProducts$: of(MOCK_TECH_PRODUCTS),
     });
@@ -34,6 +32,11 @@ describe('ProductListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO
+  // it('should call getProducts', () => {
+  //   expect(component.getProducts).toHaveBeenCalled();
+  // });
 
   it('should have products array observable', async () => {
     expect(component.products$).toBeInstanceOf(Observable);

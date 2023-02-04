@@ -12,6 +12,10 @@ export class ProductListComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  public getProducts(): void {
     // TODO: cleanup sub
     this.productsService.getProducts().subscribe();
   }
