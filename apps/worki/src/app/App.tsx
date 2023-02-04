@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
-import { View, Text } from '../styled-components/Themed';
+import { SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 import utilities from '../tailwind.json';
 
