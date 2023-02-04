@@ -11,16 +11,17 @@ const focusEnd = 55;
 /** keep this just under a full second to ensure it runs every second even if setInterval has small inconsistencies */
 const intervalMs = 990;
 
-enum Session {
-  Intro = 'intro',
-  Focus = 'focus',
-  Retro = 'retro',
+type SessionName = 'intro' | 'focus' | 'retro';
+interface Session {
+  name: SessionName;
+  end: number;
+  color: string;
 }
 
-const sessionColors: Record<Session, string> = {
-  [Session.Intro]: 'yellow-400',
-  [Session.Focus]: 'blue-600',
-  [Session.Retro]: 'green-600',
+const sessions: Record<SessionName, Session> = {
+  intro: { name: 'intro', end: 5, color: 'yellow-400' },
+  focus: { name: 'focus', end: 55, color: 'blue-600' },
+  retro: { name: 'retro', end: 59.9, color: 'green-600' },
 };
 
 // session changes
@@ -58,25 +59,23 @@ export function Timer(props: TimerProps) {
   }
 
   // set session
-  let session: Session = Session.Intro;
+  let session = sessions.intro;
   if (minSinceTopOfHr > introEnd && minSinceTopOfHr < focusEnd) {
-    session = Session.Focus;
+    session = sessions.focus;
   } else if (minSinceTopOfHr > focusEnd) {
-    session = Session.Retro;
+    session = sessions.retro;
   }
-
-  const sessionColor = sessionColors[session];
 
   return (
     <View style={tw(`items-center flex-1`)}>
       {/* top row */}
       <View>
-        <Text style={tw('text-xl')}>{session}</Text>
+        <Text style={tw('text-xl')}>{session.name}</Text>
       </View>
 
       {/* main center view */}
       <View style={tw('flex-1 justify-center')}>
-        <Text style={tw(`text-9xl font-bold text-${sessionColor}`)}>
+        <Text style={tw(`text-9xl font-bold text-${session.color}`)}>
           {Math.floor(minSinceTopOfHr)}:{Math.floor(secSinceTopOfMin)}
         </Text>
       </View>
