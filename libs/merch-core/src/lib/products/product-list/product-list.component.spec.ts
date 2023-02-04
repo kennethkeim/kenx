@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { mockProvider } from '@ngneat/spectator/jest';
-import { firstValueFrom, Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { ProductsService } from '../products.service';
 
 import { ProductListComponent } from './product-list.component';
 import {
-  MOCK_PRODUCTS_RESPONSE,
-  MOCK_TECH_PRODUCTS,
+  mockProductsResponse,
+  mockTechProducts,
 } from '../models/products.mock';
 
 describe('ProductListComponent', () => {
@@ -15,8 +15,8 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     const productsService = mockProvider(ProductsService, {
-      getProducts: () => of(MOCK_PRODUCTS_RESPONSE),
-      techProducts$: of(MOCK_TECH_PRODUCTS),
+      getProducts: () => of(mockProductsResponse),
+      techProducts$: of(mockTechProducts),
     });
 
     await TestBed.configureTestingModule({
@@ -33,19 +33,9 @@ describe('ProductListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO
-  // it('should call getProducts', () => {
-  //   expect(component.getProducts).toHaveBeenCalled();
-  // });
-
-  it('should have products array observable', async () => {
-    expect(component.products$).toBeInstanceOf(Observable);
-
-    // use .resolves for promises (or just await them first)
-    // const products = firstValueFrom(component.products$);
-    // await expect(products).resolves.toBeInstanceOf(Array);
-
-    const products = await firstValueFrom(component.products$);
-    expect(products).toBeInstanceOf(Array);
+  it('should call getProducts', () => {
+    jest.spyOn(component, 'getProducts');
+    component.ngOnInit();
+    expect(component.getProducts).toHaveBeenCalledTimes(1);
   });
 });

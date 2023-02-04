@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, tap } from 'rxjs';
-import { Product, ProductsResponse } from './product.model';
+import { Product, ProductSort, ProductsResponse } from './models/product.model';
 
 interface CategoryMap {
   [key: string]: boolean | undefined;
@@ -23,11 +23,28 @@ export class ProductsService {
     )
   );
 
+  public activeSort: ProductSort = 'price';
+  public readonly sortOptions: ProductSort[] = ['price', 'rating'];
+
   constructor(private http: HttpClient) {}
 
   public getProducts() {
-    return this.http
-      .get<ProductsResponse>(this.productsUrl)
-      .pipe(tap(({ products }) => this.products.next(products)));
+    return this.http.get<ProductsResponse>(this.productsUrl).pipe(
+      map(({ products }) => products),
+      map((products) => this.sortProducts(products)),
+      tap((products) => this.products.next(products))
+    );
+  }
+
+  public sortProductsBy(sortBy: ProductSort): void {
+    this.activeSort = sortBy;
+    const sorted = this.sortProducts(this.products.value);
+    this.products.next(sorted);
+  }
+
+  private sortProducts(products: Product[]): Product[] {
+    return [...products].sort(
+      (a, b) => a[this.activeSort] - b[this.activeSort]
+    );
   }
 }

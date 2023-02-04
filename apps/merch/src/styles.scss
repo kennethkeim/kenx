@@ -11,3 +11,14 @@ body {
 .page {
   padding: 15px;
 }
+
+button {
+  background-color: burlywood;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+
+  &.active {
+    border: 2px solid #c08435;
+  }
+}

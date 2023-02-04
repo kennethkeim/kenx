@@ -1,10 +1,25 @@
+.sortBtns {
+  display: flex;
+  align-items: center;
+
+  h2 {
+    margin: 0 10px 0 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  button {
+    margin-right: 10px;
+  }
+}
+
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 li {
-  margin: 10px;
+  margin-bottom: 10px;
   max-width: 400px;
   padding: 10px;
   background-color: #333;

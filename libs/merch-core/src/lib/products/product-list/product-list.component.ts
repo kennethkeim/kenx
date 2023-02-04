@@ -7,9 +7,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  public products$ = this.productsService.techProducts$;
-
-  constructor(private productsService: ProductsService) {}
+  constructor(public productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.getProducts();

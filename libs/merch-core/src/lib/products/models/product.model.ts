@@ -18,3 +18,5 @@ export interface ProductsResponse {
   skip: number;
   limit: number;
 }
+
+export type ProductSort = Extract<keyof Product, 'rating' | 'price'>;
