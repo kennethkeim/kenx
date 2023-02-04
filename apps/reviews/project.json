@@ -18,7 +18,8 @@
         "assets": ["apps/reviews/src/favicon.ico", "apps/reviews/src/assets"],
         "styles": ["apps/reviews/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "apps/reviews/webpack.config.js"
+        "webpackConfig": "apps/reviews/webpack.config.js",
+        "postcssConfig": "apps/reviews/postcss.config.js"
       },
       "configurations": {
         "development": {
