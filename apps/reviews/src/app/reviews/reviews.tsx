@@ -8,7 +8,7 @@ export function Reviews(props: ReviewsProps) {
   return (
     <ul className="max-w-xl mx-auto">
       {reviews.map((review) => {
-        return <ReviewCard review={review} />;
+        return <ReviewCard key={review.id} review={review} />;
       })}
     </ul>
   );

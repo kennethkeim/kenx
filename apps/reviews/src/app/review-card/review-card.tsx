@@ -6,7 +6,7 @@ export interface ReviewCardProps {
 
 export function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <li key={review.id} className="bg-white mb-7 p-6 rounded-2xl shadow">
+    <li className="bg-white mb-7 p-6 rounded-2xl shadow">
       <div className="flex justify-between mb-1">
         <h2 className="text-gray-600 font-medium">{review.guest}</h2>
         <p className="text-gray-400 text-sm">{review.date}</p>
