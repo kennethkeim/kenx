@@ -32,7 +32,6 @@
     "@nrwl/eslint-plugin-nx": "15.5.1",
     "@nrwl/jest": "15.5.1",
     "@nrwl/linter": "15.5.1",
-    "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "15.5.1",
     "@types/jest": "28.1.1",
     "@types/node": "16.11.7",
