@@ -18,12 +18,10 @@ const AppWithTw = () => {
   const tw = useTailwind();
 
   return (
-    <SafeAreaView style={tw('h-full')}>
-      <ScrollView>
-        <View style={tw('p-3 items-center')}>
-          <Timer />
-        </View>
-      </ScrollView>
+    <SafeAreaView style={tw('h-full justify-center')}>
+      <View style={tw('p-3 items-center')}>
+        <Timer />
+      </View>
     </SafeAreaView>
   );
 };

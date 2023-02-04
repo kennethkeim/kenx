@@ -12,6 +12,7 @@
     "@react-native-async-storage/async-storage": "*",
     "metro-config": "*",
     "react-test-renderer": "*",
-    "tailwind-rn": "*"
+    "tailwind-rn": "*",
+    "luxon": "*"
   }
 }
