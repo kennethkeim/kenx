@@ -14,3 +14,12 @@ In the unlikely event anyone ever reads this, feel free to fork it.
 - One of the 5 min blocks will include prompts to exercise, probably the retro block
 - Exercise will include: carpal-tunnel-prevention exercises, whole-body exercises, pranamat, etc
 - Exercises will be highly optimized for the equipment I own and the problems I'm trying to solve
+
+# Todo
+
+- use clock ticker audio for the focus session (unless i do audio for the other sessions)
+- use audio cues when session is about to change
+- see if i can reduce re-renders or move the once-per-second re-renders to a smaller component
+- have the todos list be more specific e.g. stand every other session or do pranamat in the afternoon
+- open a pr on the mistyped TailwindProvider - would be good open source experience
+- investigate the issue with tw colors
