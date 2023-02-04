@@ -34,7 +34,7 @@ export function App() {
 
   // render
   return (
-    <div className="p-8 bg-gray-100 flex justify-center">
+    <div className="p-8 bg-gray-100 min-h-screen flex justify-center">
       {/* <header><h1>Header</h1></header> */}
       {/* <nav>main navigation in here</nav> */}
 
