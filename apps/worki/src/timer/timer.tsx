@@ -6,8 +6,6 @@ import { useTailwind } from 'tailwind-rn/dist';
 /* eslint-disable-next-line */
 export interface TimerProps {}
 
-const introEnd = 5;
-const focusEnd = 55;
 /** keep this just under a full second to ensure it runs every second even if setInterval has small inconsistencies */
 const intervalMs = 990;
 
@@ -54,9 +52,12 @@ export function Timer(props: TimerProps) {
 
   // set session
   let session = sessions.intro;
-  if (minSinceTopOfHr > introEnd && minSinceTopOfHr < focusEnd) {
+  if (
+    minSinceTopOfHr > sessions.intro.end &&
+    minSinceTopOfHr < sessions.focus.end
+  ) {
     session = sessions.focus;
-  } else if (minSinceTopOfHr > focusEnd) {
+  } else if (minSinceTopOfHr > sessions.focus.end) {
     session = sessions.retro;
   }
 
