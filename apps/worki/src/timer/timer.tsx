@@ -22,7 +22,9 @@ const sessions: Record<SessionName, Session> = {
     name: 'intro',
     end: 5,
     color: 'yellow-400',
-    todos: ['💭 Plan upcoming focus session'],
+    todos: [
+      '💭 Plan upcoming focus session - alternate between studying and practicing',
+    ],
   },
   focus: {
     name: 'focus',
@@ -38,7 +40,8 @@ const sessions: Record<SessionName, Session> = {
       '🧍‍♂️ Stand up',
       '🧐 Review what you got done',
       '💬 Respond to notifications',
-      '... one of the below ...',
+      "🐪 Don't think about work",
+      '--------- one of ---------',
       '✋ Carpal tunnel exercise',
       '🏋️‍♀️ 15 reps of pushups/situps/squats',
       '🌵 Pranamat',
