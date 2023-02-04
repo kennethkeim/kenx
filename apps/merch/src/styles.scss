@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'normalize.css';
+
+body {
+  // font-family: Monaco;
+  // font-family: Menlo;
+  // font-family: monospace;
+  font-family: Courier, monospace;
+}
+
+.page {
+  padding: 15px;
+}

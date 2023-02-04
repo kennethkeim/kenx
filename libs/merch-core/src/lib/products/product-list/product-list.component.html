@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let product of products$ | async">
+    <div class="topRow">
+      <p class="title">{{ product.title }}</p>
+      <p class="price">{{ product.price | currency }}</p>
+    </div>
+    <p class="description">{{ product.description }}</p>
+  </li>
+</ul>
