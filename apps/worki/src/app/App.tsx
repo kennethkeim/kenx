@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { SafeAreaView } from 'react-native';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 import utilities from '../tailwind.json';
@@ -7,9 +7,11 @@ import Timer from '../timer/timer';
 
 export const App = () => {
   return (
-    <TailwindProvider utilities={utilities}>
-      <AppWithTw />
-    </TailwindProvider>
+    <StrictMode>
+      <TailwindProvider utilities={utilities}>
+        <AppWithTw />
+      </TailwindProvider>
+    </StrictMode>
   );
 };
 
