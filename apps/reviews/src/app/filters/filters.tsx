@@ -10,9 +10,7 @@ export function Filters({ handleToggle }: FiltersProps) {
   return (
     <aside className="max-w-xs">
       <article className="mb-5 text-gray-600 text-sm">
-        <h2 className="text-xl font-bold text-gray-600 mb-3">
-          &#x2605; 4.75 · 265 reviews
-        </h2>
+        <h2 className="text-xl font-bold text-gray-600 mb-3">&#x2605; 4.75</h2>
         <p>&#x2605; 4.8 Cleanliness</p>
         <p>&#x2605; 4.9 Accuracy</p>
         <p>&#x2605; 4.9 Communication</p>

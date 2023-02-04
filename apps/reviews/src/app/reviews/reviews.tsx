@@ -8,17 +8,17 @@ export interface ReviewsProps {
 
 export function Reviews({ reviews }: ReviewsProps) {
   return (
-    <ul className="w-screen max-w-xl">
-      {reviews.map((review) => {
-        return <ReviewCard key={review.id} review={review} />;
-      })}
+    <>
+      <h1 className="text-xl font-bold text-gray-600 mb-5 text-center">
+        {reviews.length || 'No'} Reviews
+      </h1>
 
-      {!reviews.length && (
-        <h2 className="text-xl mt-10 font-medium text-gray-400 text-center">
-          No Reviews Match This Search
-        </h2>
-      )}
-    </ul>
+      <ul className="w-screen max-w-xl">
+        {reviews.map((review) => {
+          return <ReviewCard key={review.id} review={review} />;
+        })}
+      </ul>
+    </>
   );
 }
 
