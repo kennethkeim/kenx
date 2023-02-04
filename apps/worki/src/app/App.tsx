@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 import utilities from '../tailwind.json';
+import Timer from '../timer/timer';
 
 export const App = () => {
   return (
@@ -20,8 +21,7 @@ const AppWithTw = () => {
     <SafeAreaView style={tw('h-full')}>
       <ScrollView>
         <View style={tw('p-3 items-center')}>
-          <Text>Hello there 👋</Text>
-          <Text>Time to get to Worki</Text>
+          <Timer />
         </View>
       </ScrollView>
     </SafeAreaView>
