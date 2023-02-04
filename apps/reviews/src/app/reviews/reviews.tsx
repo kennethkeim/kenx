@@ -5,9 +5,10 @@ export interface ReviewsProps {}
 
 export function Reviews(props: ReviewsProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Reviews!</h1>
-    </div>
+    <article className={styles['container']}>
+      <h2>Article heading</h2>
+      <p>Article body</p>
+    </article>
   );
 }
 

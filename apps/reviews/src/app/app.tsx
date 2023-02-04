@@ -5,8 +5,15 @@ import Reviews from './reviews/reviews';
 export function App() {
   return (
     <>
-      <Reviews />
-      <div />
+      {/* <header><h1>Header</h1></header> */}
+      {/* <nav>main navigation in here</nav> */}
+
+      <main>
+        <Reviews />
+      </main>
+
+      {/* And here is our main footer that is used across all the pages of our website */}
+      {/* <footer>footer content in here</footer> */}
     </>
   );
 }
