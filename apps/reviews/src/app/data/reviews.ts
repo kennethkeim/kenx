@@ -10,7 +10,7 @@ export interface Review {
 
 export type Reply = Pick<Review, 'message' | 'date' | 'id'>;
 
-const replyRegex = /^Response from Elam/;
+const replyRegex = /^Response from Host/;
 const dateRegex =
   /(?:January|February|March|April|May|June|July|August|September|October|November|December) 20(?:18|19|20|21|22|23)/;
 
@@ -41,11 +41,10 @@ export const reviews = rawReviews.reduce<Review[]>((acc, curr, index) => {
       reply: { id: `${index}-reply`, message, date: dateMatch[0] },
     };
   } else if (isAuthorString) {
-    const guest = curr.slice(0, curr.length - isAuthorString[0].length);
     newReview = {
       id: String(index),
       date: isAuthorString[0],
-      guest,
+      guest: 'Guest',
       message: 'placeholder',
     };
   } else if (isMessage) {
