@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import { SafeAreaView, ScrollView, View, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 import utilities from '../tailwind.json';
 import Timer from '../timer/timer';
@@ -17,11 +17,13 @@ export const App = () => {
 const AppWithTw = () => {
   const tw = useTailwind();
 
+  // once upon a time, probably now, i needed to do this to make these colors work (!)
+  // are you confused? you should be. i was. i still am.
+  console.log('colorz', tw('text-yellow-400 text-blue-600 text-green-600'));
+
   return (
-    <SafeAreaView style={tw('h-full justify-center')}>
-      <View style={tw('p-3 items-center')}>
-        <Timer />
-      </View>
+    <SafeAreaView style={tw('h-full')}>
+      <Timer />
     </SafeAreaView>
   );
 };
