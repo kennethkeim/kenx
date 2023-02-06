@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import { View, Text } from 'react-native';
 import { useTailwind } from 'tailwind-rn/dist';
 import { sessions, sessionEnds } from '../constants/sessions';
+import Ticker from '../ticker/ticker';
 
 /* eslint-disable-next-line */
 export interface TimerProps {}
@@ -53,9 +54,11 @@ export function Timer(props: TimerProps) {
 
       {/* main center view */}
       <View style={tw('flex-1 justify-center')}>
-        <Text style={tw(`text-9xl font-bold ${textClass}`)}>
-          {toTimeFormat(minSinceTopOfHr)}:{toTimeFormat(secSinceTopOfMin)}
-        </Text>
+        <Ticker
+          textClass={textClass}
+          minutes={minSinceTopOfHr}
+          seconds={secSinceTopOfMin}
+        />
 
         <View style={tw('items-center')}>
           {session.todos.map((todo) => (
@@ -71,10 +74,6 @@ export function Timer(props: TimerProps) {
 
 function getCurrentTime(): DateTime {
   return DateTime.now();
-}
-
-function toTimeFormat(num: number): string {
-  return String(Math.floor(num)).padStart(2, '0');
 }
 
 export default Timer;
