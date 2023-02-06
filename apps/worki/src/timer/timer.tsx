@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
 import { View, Text } from 'react-native';
 import { useTailwind } from 'tailwind-rn/dist';
@@ -51,16 +51,16 @@ const sessions: Record<SessionName, Session> = {
 
 export function Timer(props: TimerProps) {
   const [now, setNow] = useState(getCurrentTime());
-  const isIntervalRunning = React.useRef(false);
   const minSinceTopOfHr = now.diff(now.startOf('hour')).as('minutes');
   const secSinceTopOfMin = now.diff(now.startOf('minute')).as('seconds');
   const tw = useTailwind();
 
   // update time every second
-  if (!isIntervalRunning.current) {
-    isIntervalRunning.current = true;
-    setInterval(() => setNow(getCurrentTime()), intervalMs);
-  }
+  useEffect(() => {
+    const interval = setInterval(() => setNow(getCurrentTime()), intervalMs);
+    return () => clearInterval(interval);
+    // empty array ensures this only runs once
+  }, []);
 
   // set session
   let session = sessions.intro;
