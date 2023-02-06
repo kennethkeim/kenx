@@ -7,7 +7,7 @@
     "start": {
       "executor": "@nrwl/react-native:start",
       "options": {
-        "port": 8081
+        "port": 4200
       }
     },
     "serve": {
@@ -30,7 +30,7 @@
     },
     "run-ios": {
       "executor": "@nrwl/react-native:run-ios",
-      "options": {}
+      "options": { "port": 4200 }
     },
     "bundle-ios": {
       "executor": "@nrwl/react-native:bundle",
@@ -42,7 +42,7 @@
     },
     "run-android": {
       "executor": "@nrwl/react-native:run-android",
-      "options": {}
+      "options": { "port": 4200 }
     },
     "build-android": {
       "executor": "@nrwl/react-native:build-android",
