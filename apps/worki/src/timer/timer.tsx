@@ -2,52 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
 import { View, Text } from 'react-native';
 import { useTailwind } from 'tailwind-rn/dist';
+import { sessions, sessionEnds } from '../constants/sessions';
 
 /* eslint-disable-next-line */
 export interface TimerProps {}
 
 /** keep this just under a full second to ensure it runs every second even if setInterval has small inconsistencies */
 const intervalMs = 990;
-
-type SessionName = 'intro' | 'focus' | 'retro';
-interface Session {
-  name: SessionName;
-  end: number;
-  color: string;
-  todos: string[];
-}
-
-const sessions: Record<SessionName, Session> = {
-  intro: {
-    name: 'intro',
-    end: 5,
-    color: 'yellow-400',
-    todos: [
-      '💭 Plan upcoming focus session - alternate between studying and practicing',
-    ],
-  },
-  focus: {
-    name: 'focus',
-    end: 55,
-    color: 'blue-600',
-    todos: ['💪 Get it done'],
-  },
-  retro: {
-    name: 'retro',
-    end: 59.9,
-    color: 'green-600',
-    todos: [
-      '🧍‍♂️ Stand up',
-      '🧐 Review what you got done',
-      '💬 Respond to notifications',
-      "🐪 Don't think about work",
-      '--------- one of ---------',
-      '✋ Carpal tunnel exercise',
-      '🏋️‍♀️ 15 reps of pushups/situps/squats',
-      '🌵 Pranamat',
-    ],
-  },
-};
 
 export function Timer(props: TimerProps) {
   const [now, setNow] = useState(getCurrentTime());
@@ -65,16 +26,16 @@ export function Timer(props: TimerProps) {
   // set session
   let session = sessions.intro;
   if (
-    minSinceTopOfHr > sessions.intro.end &&
-    minSinceTopOfHr < sessions.focus.end
+    minSinceTopOfHr > sessionEnds.intro &&
+    minSinceTopOfHr < sessionEnds.focus
   ) {
     session = sessions.focus;
-  } else if (minSinceTopOfHr > sessions.focus.end) {
+  } else if (minSinceTopOfHr > sessionEnds.focus) {
     session = sessions.retro;
   }
 
   // add visual cues if nearing end of session
-  const minLeft = session.end - minSinceTopOfHr;
+  const minLeft = sessionEnds[session.name] - minSinceTopOfHr;
   let bgClass = '';
   let textClass = `text-${session.color}`;
   if (minLeft < 1) {
