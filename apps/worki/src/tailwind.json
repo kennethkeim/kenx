@@ -39,16 +39,16 @@
 			"backgroundColor": "rgb(22 163 74 / var(--tw-bg-opacity))"
 		}
 	},
-	"text-xl": {
-		"style": {
-			"fontSize": 20,
-			"lineHeight": 28
-		}
-	},
 	"text-9xl": {
 		"style": {
 			"fontSize": 128,
 			"lineHeight": 128
+		}
+	},
+	"text-xl": {
+		"style": {
+			"fontSize": 20,
+			"lineHeight": 28
 		}
 	},
 	"text-lg": {
