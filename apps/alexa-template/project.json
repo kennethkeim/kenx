@@ -1,0 +1,38 @@
+{
+  "name": "alexa-template",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/alexa-template/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/alexa-template",
+        "format": ["cjs"],
+        "main": "apps/alexa-template/src/main.ts",
+        "tsConfig": "apps/alexa-template/tsconfig.app.json",
+        "assets": ["apps/alexa-template/src/assets"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "alexa-template:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "alexa-template:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/alexa-template/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
