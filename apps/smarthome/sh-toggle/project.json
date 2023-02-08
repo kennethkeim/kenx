@@ -1,5 +1,5 @@
 {
-  "name": "smarthome-sh-toggle",
+  "name": "sh-toggle",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/smarthome/sh-toggle/src",
   "projectType": "application",
@@ -18,11 +18,11 @@
     "serve": {
       "executor": "@nrwl/js:node",
       "options": {
-        "buildTarget": "smarthome-sh-toggle:build"
+        "buildTarget": "sh-toggle:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "smarthome-sh-toggle:build:production"
+          "buildTarget": "sh-toggle:build:production"
         }
       }
     },
