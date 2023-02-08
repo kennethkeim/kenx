@@ -19,3 +19,12 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## New Lambda
+
+Note: replace this manual process with an nx generator if you want to learn more nx tricks.
+
+1. Copy the `alexa-template` folder
+2. Find and replace "alexa-template" with your app name in the `project.json`
+
+Original generator command: `nx generate @nrwl/node:application LAMBDA-NAME --port=4200 --e2eTestRunner=none --unitTestRunner=none --no-interactive`
