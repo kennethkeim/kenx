@@ -11,7 +11,7 @@ export const sessions: Record<SessionName, Session> = {
   focus: {
     name: 'focus',
     color: 'blue-600',
-    todos: ['💪 Get it done'],
+    todos: ['💪 Get it done!'],
   },
   retro: {
     name: 'retro',
@@ -30,7 +30,7 @@ export const sessions: Record<SessionName, Session> = {
 };
 
 export const sessionTimes: Record<SessionName, [number, number]> = {
-  intro: [5, 55],
-  focus: [55, 60],
-  retro: [60, 5],
+  intro: [60, 5],
+  focus: [5, 55],
+  retro: [55, 60],
 };
