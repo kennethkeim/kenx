@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
 import { View, Text } from 'react-native';
 import { useTailwind } from 'tailwind-rn/dist';
-import { sessions, sessionEnds } from '../constants/sessions';
+import { sessions, sessionTimes } from '../constants/sessions';
 import Ticker from '../ticker/ticker';
 
 /* eslint-disable-next-line */
@@ -27,19 +27,19 @@ export function Timer(props: TimerProps) {
   // set session
   let session = sessions.intro;
   if (
-    minSinceTopOfHr > sessionEnds.intro &&
-    minSinceTopOfHr < sessionEnds.focus
+    minSinceTopOfHr >= sessionTimes.focus[0] &&
+    minSinceTopOfHr < sessionTimes.focus[1]
   ) {
     session = sessions.focus;
-  } else if (minSinceTopOfHr > sessionEnds.focus) {
+  } else if (minSinceTopOfHr >= sessionTimes.retro[0]) {
     session = sessions.retro;
   }
 
-  // add visual cues if nearing end of session
-  const minLeft = sessionEnds[session.name] - minSinceTopOfHr;
+  // add visual cues if starting new session
+  const minSinceSessionStart = minSinceTopOfHr - sessionTimes[session.name][0];
   let bgClass = '';
   let textClass = `text-${session.color}`;
-  if (minLeft < 1) {
+  if (minSinceSessionStart < 1) {
     bgClass =
       Math.floor(secSinceTopOfMin) % 2 === 0 ? `bg-${session.color}` : '';
     textClass = !bgClass ? textClass : '';

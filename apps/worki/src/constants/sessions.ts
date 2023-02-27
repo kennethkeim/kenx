@@ -29,8 +29,8 @@ export const sessions: Record<SessionName, Session> = {
   },
 };
 
-export const sessionEnds: Record<SessionName, number> = {
-  intro: 5,
-  focus: 55,
-  retro: 59.9,
+export const sessionTimes: Record<SessionName, [number, number]> = {
+  intro: [5, 55],
+  focus: [55, 60],
+  retro: [60, 5],
 };
