@@ -1,7 +1,17 @@
 import { join, resolve } from 'path';
 import fs from 'fs';
+import { userInfo } from 'os';
 
 const isDryRun = process.argv[3] === '--dry-run';
+
+const unsafeFolers = [
+  userInfo().homedir,
+  'node_modules',
+  '.git',
+  'out-tsc',
+  'dist',
+  'build',
+];
 
 // resolve folder path
 const rawFolderPath = process.argv[2];
@@ -13,7 +23,13 @@ if (!fs.existsSync(rootFolderToRename))
 console.log(`dry run: ${isDryRun}\n`);
 
 const renameFilesAndDirs = (dirPath: string) => {
-  console.group(dirPath);
+  const dirName = dirPath.split('/').pop() as string;
+  if (unsafeFolers.includes(dirName)) {
+    console.log(`🤡 SKIPPING "${dirPath}" 🤡`);
+    return;
+  }
+
+  console.group(`🗂  ${dirPath}`);
   const fileAndDirNames = fs
     .readdirSync(dirPath)
     .filter((name) => name !== '.DS_Store');
