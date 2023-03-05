@@ -20,7 +20,10 @@ const renameFilesAndDirs = (dirPath: string) => {
 
   const newPaths = fileAndDirNames.map((ogName) => {
     // get new name
-    const newName = ogName.replace(/ /g, '-').toLowerCase();
+    // replace spaces and underscores with dashes
+    let newName = ogName.replace(/[ _]/g, '-').toLowerCase();
+    // replace multiple dashes with single dash
+    newName = newName.replace(/[-]{1,}/g, '-');
     const ogPath = join(dirPath, ogName);
     const newPath = join(dirPath, newName);
 
