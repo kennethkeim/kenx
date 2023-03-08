@@ -30,7 +30,7 @@ export const sessions: Record<SessionName, Session> = {
 };
 
 export const sessionTimes: Record<SessionName, [number, number]> = {
-  intro: [60, 5],
+  intro: [0, 5],
   focus: [5, 55],
-  retro: [55, 60],
+  retro: [55, 59.9],
 };
