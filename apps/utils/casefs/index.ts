@@ -51,14 +51,17 @@ const renameFilesAndDirs = (dirPath: string) => {
     const ogPath = join(dirPath, ogName);
     const newPath = join(dirPath, newName);
 
-    // rename
-    if (newName !== ogName) {
+    if (!isDryRun && newName !== ogName) {
       console.log(ogName);
       console.log(newName);
       fs.renameSync(ogPath, newPath);
+      return newPath;
+    } else if (newName !== ogName) {
+      console.log(ogName);
+      return ogPath;
+    } else {
+      return ogPath;
     }
-
-    return newPath;
   });
 
   console.groupEnd();
