@@ -1,8 +1,17 @@
+#!/usr/bin/env ts-node
+
 import { join, resolve } from 'path';
 import fs from 'fs';
 import { userInfo } from 'os';
+import { program } from 'commander';
 
-const isDryRun = process.argv[3] === '--dry-run';
+const app = program
+  .argument('<directory>', 'Directory to convert')
+  .option('--dry-run', 'Dry run');
+app.parse();
+
+const isDryRun = app.opts().dryRun;
+const rawFolderPath = app.args[0];
 
 const unsafeFolers = [
   userInfo().homedir,
@@ -14,7 +23,6 @@ const unsafeFolers = [
 ];
 
 // resolve folder path
-const rawFolderPath = process.argv[2];
 if (!rawFolderPath) throw new Error('No folder path provided');
 const rootFolderToRename = resolve(rawFolderPath);
 if (!fs.existsSync(rootFolderToRename))

@@ -1,0 +1,14 @@
+{
+  "name": "casefs",
+  "version": "1.0.0",
+  "description": "Rename files and dirs recursively to a consistent casing convention",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'no tests'"
+  },
+  "bin": {
+    "casefs": "./index.ts"
+  },
+  "author": "Kenneth Keim <hey@kennethkeim.com> (https://kennethkeim.com/)",
+  "license": "ISC"
+}
