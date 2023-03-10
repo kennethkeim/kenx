@@ -4,6 +4,17 @@ import { join, resolve } from 'path';
 import fs from 'fs';
 import { userInfo } from 'os';
 import { program } from 'commander';
+import winston from 'winston';
+import chalk from 'chalk';
+const { printf } = winston.format;
+
+const format = printf(({ level, message, label, timestamp }) => {
+  return level === 'warn' ? chalk.yellow(message) : message;
+});
+const { info, warn } = winston.createLogger({
+  transports: [new winston.transports.Console()],
+  format,
+});
 
 const app = program
   .argument('<directory>', 'Directory to convert')
@@ -28,12 +39,12 @@ const rootFolderToRename = resolve(rawFolderPath);
 if (!fs.existsSync(rootFolderToRename))
   throw new Error('Folder path does not exist');
 
-console.log(`dry run: ${isDryRun}\n`);
+warn(`dry run: ${isDryRun}\n`);
 
 const renameFilesAndDirs = (dirPath: string) => {
   const dirName = dirPath.split('/').pop() as string;
   if (unsafeFolers.includes(dirName)) {
-    console.log(`🤡 SKIPPING "${dirPath}" 🤡`);
+    warn(`🤡 SKIPPING "${dirPath}" 🤡`);
     return;
   }
 
@@ -52,12 +63,12 @@ const renameFilesAndDirs = (dirPath: string) => {
     const newPath = join(dirPath, newName);
 
     if (!isDryRun && newName !== ogName) {
-      console.log(ogName);
-      console.log(newName);
+      warn(ogName);
+      info(newName);
       fs.renameSync(ogPath, newPath);
       return newPath;
     } else if (newName !== ogName) {
-      console.log(ogName);
+      warn(ogName);
       return ogPath;
     } else {
       return ogPath;
