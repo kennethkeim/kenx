@@ -1,0 +1,7 @@
+{
+  "name": "cp-meow",
+  "version": "0.0.1",
+  "bin": {
+    "cpmeow": "./index.ts"
+  }
+}
