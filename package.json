@@ -1,8 +1,11 @@
 {
   "name": "kenx",
   "version": "0.0.0",
+  "packageManager": "pnpm@7.29.1",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "setup-local": "corepack enable",
     "mr": "nx run merch:serve",
     "mr:t": "nx run merch:test",
     "mr:tw": "nx run merch:test --watch"
