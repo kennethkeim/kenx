@@ -1,0 +1,11 @@
+{
+  "name": "casefs",
+  "version": "0.0.1",
+  "description": "Rename files and dirs recursively to kebab-case.",
+  "type": "module",
+  "scripts": {
+    "rename": "node index.js"
+  },
+  "author": "Kenneth Keim <hey@kennethkeim.com> (https://kennethkeim.com/)",
+  "license": "ISC"
+}
