@@ -6,6 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "setup-local": "corepack enable",
+    "mkcli": "hygen cli new",
     "mr": "nx run merch:serve",
     "mr:t": "nx run merch:test",
     "mr:tw": "nx run merch:test --watch"
@@ -84,6 +85,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "hygen": "^6.2.11",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "~12.2.3",
