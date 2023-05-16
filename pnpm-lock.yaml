@@ -225,6 +225,9 @@ importers:
       react-test-renderer: 18.2.0_react@18.2.0
       tailwind-rn: 4.2.0_sno66hrxozhatneih5oux35g2a
 
+  libs/casefs:
+    specifiers: {}
+
 packages:
 
   /@ampproject/remapping/2.2.0:
